@@ -49,16 +49,21 @@ export default {
   background:#ebebeb;
 }
 .weui-navbar__item{
-  padding:13px 10px 13px;
-  font-size:16px;
-  white-space:nowrap;
-  background:#ebebeb;
-  cursor:pointer;
+padding:13px 10px 11px;
+font-size:16px;
+white-space:nowrap;
+background:#ebebeb;
+cursor:pointer;
 }
 .weui-navbar__item:after{
-  border-right:none;
+border-right:none;
 }
 .weui-navbar__item.weui-bar__item_on{
-  color:rgb(244, 67, 54);
+border-bottom:2px solid rgb(244, 67, 54);
+color:rgb(0, 188, 212);
+}
+.weui-navbar__item:first-child.weui-bar__item_on{
+color:rgb(244, 67, 54);
+border-bottom:2px solid rgb(0, 188, 212);
 }
 </style>

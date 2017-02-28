@@ -1,13 +1,12 @@
 <template>
   <div class="list">
-    <div>{{tip}}</div>
-    <a href="" class="weui-media-box weui-media-box_appmsg"  v-for="item in listData">
+    <a :href="item.src_url" class="weui-media-box weui-media-box_appmsg"  v-for="item in listData">
       <div class="weui-media-box__hd">
       </div>
       <div class="weui-media-box__bd">
         <h4 class="weui-media-box__title">{{item.title}}</h4>
-        <p class="weui-media-box__desc">{{item.genres}}</p>
-        <p class="weui-media-box__time">{{item.subtype}}</p>
+        <p class="weui-media-box__desc">{{item.author}}</p>
+        <p class="weui-media-box__time">{{item.created_at}}</p>
       </div>
     </a>
   </div>
@@ -19,17 +18,6 @@
     name: 'list',
     data () {
       return {
-        list: [{
-          imgs: './assets/images/logo.png',
-          title: 'Jack',
-          desc: 'Jack',
-          time: 'Jack'
-        }, {
-          imgs: './assets/images/logo.png',
-          title: 'Jack',
-          desc: 'Jack',
-          time: 'Jack'
-        }],
         listData: [],
         tip: '0'
       }
@@ -42,8 +30,8 @@
     },
     methods: {
       getLists: function (id) {
-        this.$http.post('/api/channel/' + id, {}).then((response) => {
-          console.log(response)
+        this.$http.post('/api/channel/' + id, {id: id}).then((response) => {
+          this.listData = response.body
         })
       }
     }
